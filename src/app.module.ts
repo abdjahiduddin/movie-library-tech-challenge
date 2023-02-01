@@ -29,10 +29,6 @@ import { MoviesModule } from './movies/movies.module';
         synchronize: true,
       }),
     }),
-    GraphQLModule.forRoot<ApolloDriverConfig>({
-      driver: ApolloDriver,
-      autoSchemaFile: join(process.cwd(), 'src/graphql/schema.gql'),
-    }),
     MoviesModule,
   ],
   controllers: [],
