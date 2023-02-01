@@ -3,6 +3,12 @@ import { ConfigModule } from '@nestjs/config/dist';
 import { configValidationSchema } from './config/validation.schema';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigService } from '@nestjs/config/dist/config.service';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { join } from 'path';
+import { MoviesModule } from './movies/movies.module';
+import { ActorsModule } from './actors/actors.module';
+import { AuthorsModule } from './authors/authors.module';
 
 @Module({
   imports: [
@@ -25,6 +31,13 @@ import { ConfigService } from '@nestjs/config/dist/config.service';
         synchronize: true,
       }),
     }),
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+    }),
+    MoviesModule,
+    ActorsModule,
+    AuthorsModule,
   ],
   controllers: [],
   providers: [],
