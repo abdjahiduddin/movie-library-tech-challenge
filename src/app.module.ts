@@ -7,8 +7,6 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { MoviesModule } from './movies/movies.module';
-import { ActorsModule } from './actors/actors.module';
-import { AuthorsModule } from './authors/authors.module';
 
 @Module({
   imports: [
@@ -33,11 +31,9 @@ import { AuthorsModule } from './authors/authors.module';
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      autoSchemaFile: join(process.cwd(), 'src/graphql/schema.gql'),
     }),
     MoviesModule,
-    ActorsModule,
-    AuthorsModule,
   ],
   controllers: [],
   providers: [],
