@@ -7,8 +7,10 @@ import {
 } from 'sequelize-typescript';
 import { MovieActor } from './movie_actor.model';
 import { Movie } from './movie.model';
+import { Field, ObjectType } from '@nestjs/graphql';
 
 @Table
+@ObjectType()
 export class Actor extends Model<Actor> {
   @Column({
     primaryKey: true,
@@ -17,6 +19,7 @@ export class Actor extends Model<Actor> {
       is: /^[a-zA-Z0-9_-]{21}$/g,
     },
   })
+  @Field()
   act_id: string;
 
   @Column({
@@ -24,6 +27,7 @@ export class Actor extends Model<Actor> {
     allowNull: false,
     unique: true,
   })
+  @Field()
   act_name: string;
 
   @BelongsToMany(() => Movie, () => MovieActor)

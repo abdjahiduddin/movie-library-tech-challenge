@@ -34,10 +34,10 @@ import { AuthorModule } from './author/author.module';
     MovieModule,
     ActorModule,
     AuthorModule,
-    // GraphQLModule.forRoot<ApolloDriverConfig>({
-    //   driver: ApolloDriver,
-    //   autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-    // }),
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      autoSchemaFile: join(process.cwd(), 'src/graphql/schema.gql'),
+    }),
   ],
   controllers: [],
   providers: [],
