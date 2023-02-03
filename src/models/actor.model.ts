@@ -22,6 +22,7 @@ export class Actor extends Model<Actor> {
   @Column({
     type: DataType.STRING(45),
     allowNull: false,
+    unique: true,
   })
   act_name: string;
 

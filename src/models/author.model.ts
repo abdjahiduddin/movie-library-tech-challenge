@@ -15,6 +15,7 @@ export class Author extends Model<Author> {
   @Column({
     type: DataType.STRING(45),
     allowNull: false,
+    unique: true,
   })
   aut_name: string;
 

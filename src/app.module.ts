@@ -6,7 +6,9 @@ import { ConfigService } from '@nestjs/config/dist/config.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
-import { MoviesModule } from './movies/movies.module';
+import { MovieModule } from './movie/movie.module';
+import { ActorModule } from './actor/actor.module';
+import { AuthorModule } from './author/author.module';
 
 @Module({
   imports: [
@@ -29,7 +31,13 @@ import { MoviesModule } from './movies/movies.module';
         synchronize: true,
       }),
     }),
-    MoviesModule,
+    MovieModule,
+    ActorModule,
+    AuthorModule,
+    // GraphQLModule.forRoot<ApolloDriverConfig>({
+    //   driver: ApolloDriver,
+    //   autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+    // }),
   ],
   controllers: [],
   providers: [],
