@@ -46,7 +46,7 @@ export class ActorService {
   async deleteActor(id: string): Promise<{ id: string; message: string }> {
     const result = await this.actorModel.destroy({ where: { act_id: id } });
     if (result === 0) {
-      throw new NotFoundException(`Task with ID ${id} not found`);
+      throw new NotFoundException(`Actor with ID ${id} not found`);
     }
     return {
       id,
