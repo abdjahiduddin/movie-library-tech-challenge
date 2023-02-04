@@ -14,7 +14,7 @@ import { AuthorModule } from './author/author.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: [`${process.env.STAGE}.stage.env`],
+      envFilePath: [`${process.env.NODE_ENV}.stage.env`],
       isGlobal: true,
       validationSchema: configValidationSchema,
     }),

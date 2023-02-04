@@ -11,10 +11,11 @@ async function bootstrap() {
   app.use(redirect);
 
   const configService = app.get(ConfigService);
-  const port = configService.get('HOST_PORT');
-  const env = process.env.STAGE.toUpperCase();
+  const port = configService.get('PORT');
+  const hostname = process.env.NODE_ENV === 'dev' ? 'localhost' : '0.0.0.0';
+  const env = process.env.NODE_ENV.toUpperCase();
 
-  await app.listen(port);
-  logger.log(`[${env}] Application listening on port ${port}`);
+  await app.listen(port, hostname);
+  logger.log(`[${env}] Application listening on port ${hostname}:${port}`);
 }
 bootstrap();
