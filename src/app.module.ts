@@ -5,6 +5,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigService } from '@nestjs/config/dist/config.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { join } from 'path';
 import { MovieModule } from './movie/movie.module';
 import { ActorModule } from './actor/actor.module';
@@ -31,13 +32,21 @@ import { AuthorModule } from './author/author.module';
         synchronize: true,
       }),
     }),
+    GraphQLModule.forRootAsync<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      useFactory: async () => {
+        return {
+          autoSchemaFile: join(process.cwd(), 'src/graphql/schema.gql'),
+          debug: true,
+          playground: false,
+          introspection: true,
+          plugins: [ApolloServerPluginLandingPageLocalDefault()],
+        };
+      },
+    }),
     MovieModule,
     ActorModule,
     AuthorModule,
-    GraphQLModule.forRoot<ApolloDriverConfig>({
-      driver: ApolloDriver,
-      autoSchemaFile: join(process.cwd(), 'src/graphql/schema.gql'),
-    }),
   ],
   controllers: [],
   providers: [],

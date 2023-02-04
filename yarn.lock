@@ -44,6 +44,19 @@
     ora "5.4.1"
     rxjs "6.6.7"
 
+"@apollo/cache-control-types@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@apollo/cache-control-types/-/cache-control-types-1.0.2.tgz#f42ed3563acc7f1f50617d65d208483977adc68e"
+  integrity sha512-Por80co1eUm4ATsvjCOoS/tIR8PHxqVjsA6z76I6Vw0rFn4cgyVElQcmQDIZiYsy41k8e5xkrMRECkM2WR8pNw==
+
+"@apollo/federation-internals@2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.3.0.tgz#f1ed1b0678939985b453d5f2bea945aa90f17970"
+  integrity sha512-VHulD2AXhrB6bindPIWEV8aE5lOjADi2pSsZKD3aPZL0jJzRxFNz2wOaP0DnTFUbm1FXlNuHJiJrRjlpIURQbg==
+  dependencies:
+    chalk "^4.1.0"
+    js-levenshtein "^1.1.6"
+
 "@apollo/protobufjs@1.2.6":
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/@apollo/protobufjs/-/protobufjs-1.2.6.tgz#d601e65211e06ae1432bf5993a1a0105f2862f27"
@@ -80,6 +93,14 @@
     "@protobufjs/utf8" "^1.1.0"
     "@types/long" "^4.0.0"
     long "^4.0.0"
+
+"@apollo/subgraph@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.3.0.tgz#2dc747c4bbfc3114060f7224683375154bd58607"
+  integrity sha512-ryB1iVnnV6+xYVqryEU9ylWLpVuCkzIF0DwYpxBZqYAfRNIZHrpvou6o2k27xeJuMAh7pcDTmQW5PiCPAseubw==
+  dependencies:
+    "@apollo/cache-control-types" "^1.0.2"
+    "@apollo/federation-internals" "2.3.0"
 
 "@apollo/usage-reporting-protobuf@^4.0.0":
   version "4.0.2"
@@ -1853,6 +1874,16 @@ apollo-server-types@^3.7.1:
     apollo-reporting-protobuf "^3.3.3"
     apollo-server-env "^4.2.1"
 
+apollo-server@^3.11.1:
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/apollo-server/-/apollo-server-3.11.1.tgz#831646081323aadf2cb53cdc3401786e41d44d81"
+  integrity sha512-3RZ/veWGbi0zXy2YVaPkYIAavpbHyEVui91DNYvz6UFS0fZmhJwG7f1VmGheeRiqiV8nFa8GuBejI1niTeAYzA==
+  dependencies:
+    "@types/express" "4.17.14"
+    apollo-server-core "^3.11.1"
+    apollo-server-express "^3.11.1"
+    express "^4.17.1"
+
 append-field@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/append-field/-/append-field-1.0.0.tgz#1e3440e915f0b1203d23748e78edd7b9b5b43e56"
@@ -2748,7 +2779,7 @@ expect@^29.0.0, expect@^29.4.1:
     jest-message-util "^29.4.1"
     jest-util "^29.4.1"
 
-express@4.18.2:
+express@4.18.2, express@^4.17.1:
   version "4.18.2"
   resolved "https://registry.yarnpkg.com/express/-/express-4.18.2.tgz#3fabe08296e930c796c19e3c516979386ba9fd59"
   integrity sha512-5/PsL6iGPdfQ/lKM1UuielYgv3BUoJfz1aUwU9vHZ+J7gyvwdQXFEBIEIaxeGf0GIcreATNyBExtalisDbuMqQ==
@@ -3779,6 +3810,11 @@ jest@29.3.1:
     "@jest/types" "^29.3.1"
     import-local "^3.0.2"
     jest-cli "^29.3.1"
+
+js-levenshtein@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/js-levenshtein/-/js-levenshtein-1.1.6.tgz#c6cee58eb3550372df8deb85fad5ce66ce01d59d"
+  integrity sha512-X2BB11YZtrRqY4EnQcLX5Rh373zbK4alC1FW7D7MBhL2gtcC17cTnr6DmfHZeS0s2rTHjUTMMHfG7gO8SSdw+g==
 
 js-sdsl@^4.1.4:
   version "4.3.0"

@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/sequelize';
 import { Actor } from 'src/models/actor.model';
 import { ActorInput } from './dto/actor.input';
 import { nanoid } from 'nanoid';
+import { DeleteResponse } from './dto/response.output';
 
 @Injectable()
 export class ActorService {
@@ -18,7 +19,7 @@ export class ActorService {
   async getOne(id: string): Promise<Actor> {
     return this.actorModel.findOne({
       where: {
-        id,
+        act_id: id,
       },
     });
   }
@@ -43,11 +44,12 @@ export class ActorService {
     return actor;
   }
 
-  async deleteActor(id: string): Promise<{ id: string; message: string }> {
+  async deleteActor(id: string): Promise<DeleteResponse> {
     const result = await this.actorModel.destroy({ where: { act_id: id } });
     if (result === 0) {
       throw new NotFoundException(`Actor with ID ${id} not found`);
     }
+
     return {
       id,
       message: 'Successfully deleted actor',

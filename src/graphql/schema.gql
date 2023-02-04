@@ -7,6 +7,22 @@ type Actor {
   act_name: String!
 }
 
+type DeleteResponse {
+  id: String!
+  message: String!
+}
+
 type Query {
   getAllActors: [Actor!]!
+  getOneActor(id: String!): Actor!
+}
+
+type Mutation {
+  addActor(actorInput: ActorInput!): Actor!
+  updateActor(id: String!, actorInput: ActorInput!): Actor!
+  deleteActor(id: String!): DeleteResponse!
+}
+
+input ActorInput {
+  act_name: String!
 }
